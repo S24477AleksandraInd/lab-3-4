@@ -3,14 +3,14 @@ on:
 
 jobs:
   test:
-    runs-on: self-hosted
+    runs-on: arc-runner-set
 
     steps:
       - name: Echo
         run: echo "Hello, world!"
 
   create-model:
-    runs-on: self-hosted
+    runs-on: arc-runner-set
 
     steps:
       - uses: actions/checkout@v4

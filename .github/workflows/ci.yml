@@ -20,7 +20,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install pipx
-        run: pip3 install --user pipx
+        run: python3 -m pip install --user pipx
 
       - name: Install poetry (project manager)
         run: pipx install poetry --python 3.11

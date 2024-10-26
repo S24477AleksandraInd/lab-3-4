@@ -37,5 +37,5 @@ jobs:
         with:
           name: models
           path: |
-            .models/
-            .assets/
+            .models/**
+            .assets/**

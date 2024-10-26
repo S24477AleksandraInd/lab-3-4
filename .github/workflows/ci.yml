@@ -15,6 +15,7 @@ jobs:
     runs-on: arc-runner-set
 
     steps:
+      - run: sudo apt-get install libgomp1
       - run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
 
       - uses: actions/checkout@v4

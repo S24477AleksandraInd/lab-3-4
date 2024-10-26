@@ -4,14 +4,7 @@ on:
   push:
 
 jobs:
-  test:
-    runs-on: arc-runner-set
-
-    steps:
-      - name: Echo
-        run: echo "Hello, world!"
-
-  create-model:
+  create-models:
     runs-on: arc-runner-set
 
     steps:

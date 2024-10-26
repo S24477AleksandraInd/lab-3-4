@@ -13,6 +13,8 @@ jobs:
     runs-on: arc-runner-set
 
     steps:
+      - run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
+
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v5

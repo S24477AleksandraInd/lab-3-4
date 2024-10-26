@@ -19,8 +19,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install pipx
+        run: pip3 install --user pipx
+
       - name: Install poetry (project manager)
-        run: pipx install poetry --python 3.12
+        run: pipx install poetry --python 3.11
 
       - name: Configure poetry
         run: poetry config virtualenvs.create false

@@ -38,7 +38,7 @@ jobs:
       - name: Copy reports to /tmp
         run: |
           mkdir -p /tmp/reports
-          cp .models/report.pdf .models/report.html .assets/*.png .assets/CollegeDistance.html /tmp/reports
+          cp .models/report.pdf .models/report.html .models/*.png .assets/CollegeDistance.html /tmp/reports
 
       - name: Archive generated reports
         uses: actions/upload-artifact@v4

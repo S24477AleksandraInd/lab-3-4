@@ -30,12 +30,15 @@ jobs:
         run: poetry install
 
       - name: Learn Models
-        run: poetry run python3 -m asi_labs.lab3.learn
+        run: python3 -m asi_labs.lab3.learn
+
+      - name: Create Dataset Profile
+        run: python3 -m asi_labs.lab3.dataset
 
       - name: Copy reports to /tmp
         run: |
           mkdir -p /tmp/reports
-          cp .models/report.pdf .models/report.html /tmp/reports
+          cp .models/report.pdf .models/report.html .assets/*.png .assets/CollegeDistance.html /tmp/reports
 
       - name: Archive generated reports
         uses: actions/upload-artifact@v4
@@ -44,10 +47,13 @@ jobs:
           path: |
             /tmp/reports
 
+      - name: Copy model to /tmp
+        run: |
+          mkdir -p /tmp/model
+          cp .models/output_model.pkl /tmp/model
+
       - name: Archive generated models
         uses: actions/upload-artifact@v4
         with:
           name: model
-          path: .models/output_model.pkl
-
-
+          path: /tmp/model

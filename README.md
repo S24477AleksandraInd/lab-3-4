@@ -1,17 +1,30 @@
 # Lab 3
 
-## Dane wejściowe
+## Zadania z labu
 
-Po wstępnej analizie (`.assets/CollegeDistance.html`) danych można zauważyć następujące zależności:
- - Aż 2% studentów ma 0 dystans do uczelni
- - Region ma dużą zależność od czesnego
- - Region jest również zależny od zarobków
- - Zbiór danych nie zawiera żadnych braków lub odchyleń
+### Eksploracja i wstępna analiza danych
 
+ - Przetwarzanie danych -> `asi_labs/lab3/dataset.py`
+ - Eksploracja danych -> `.assets/report-copy/CollegeDistance.html`
+
+### Inżynieria cech i przygotowanie danych
+
+ - Inżynieria cech -> `asi_labs/lab3/dataset.py`
+
+### Wybór i trenowanie modelu
+
+ - Wybór modelu -> `asi_labs/lab3/learn.py` oraz dalsza część README.md
+ - Trenowanie modelu -> `asi_labs/lab3/learn.py`
+
+### Ocena i optymalizacja modelu
+
+ - Ocena poprzez raporty -> `.assets/report-copy/`
+ - Optymalizacja modelu -> `asi_labs/lab3/learn.py`
+ - Skrócona ocena -> dalsza część README.md
 
 ## Stworzone modele
 
-### Wstępna analiza
+### Wstępna analiza modeli względem danych
 
 Pierwsza analiza danych pozwoliła na porównanie następującej gamy model ML:
 
@@ -55,10 +68,12 @@ Pełny raport z trenowania został wygenerowany w [Reapply "fix(tmp): use ubuntu
 
 Kopia raportu znajduje się w [`.assets/report-copy`](.assets/report-copy).
 
+Wszystkie raporty znajdują są dostępne [tutaj](https://github.com/S24477AleksandraInd/lab-3-4/actions?query=event%3Apush+is%3Asuccess+branch%3Amain)
+
 ## Github Actions oraz *self-hosted runners*
 
-Do uruchamiania zadań w GH Actions pierwotnie używałam kontenera zdefiniowanego w `compose.yml`
+Do uruchamiania zadań w GH Actions pierwotnie zastosowano kontener zdefiniowany w `compose.yml`
 
-Później przeniosłam się na [runnery wewnątrz kubernetes-a (ARC)](https://github.com/actions/actions-runner-controller/blob/master/docs/quickstart.md).
+Z dalszym rozwojem projektu wykorzystano [runnery wewnątrz kubernetes-a (ARC)](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller).
 
 # Lab 4

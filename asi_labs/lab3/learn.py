@@ -63,6 +63,9 @@ images = [
     s.plot_model(final_model, plot="vc", save=True, verbose=False),
 ]
 
+# Create .models directory if it does not exist
+Path(".models").mkdir(exist_ok=True)
+
 for image in images:
     target_path = Path(".models") / Path(image).name
     if target_path.exists():

@@ -7,7 +7,7 @@ on:
 
 jobs:
   create-models:
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
 
     steps:
       - run: sudo apt-get install libgomp1 wkhtmltopdf

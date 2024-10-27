@@ -2,6 +2,8 @@ name: Pipeline for automatic model creation
 
 on:
   push:
+    paths-ignore:
+      README.md
 
 jobs:
   create-models:

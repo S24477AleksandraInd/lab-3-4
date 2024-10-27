@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css"
+    href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    h1 {
+      text-align: center;
+      font-size: 44pt;
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: left;
+      font-size: 34pt;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Podsumowanie danych</h1>
+  <h2>Surowy dataset</h2>
+  <pre>{{ dataset_raw }}</pre>
+  <h2>Przygotowany dataset</h2>
+  <pre>{{ dataset }}</pre>
+  <!-- <p>{{ dataset|length }} wierszy</p> -->
+  <p>Usunięto 0 wierszy</p>
+  <p>Zmodyfikowano 0 wierszy</p>
+  <h2>Testowy dataset</h2>
+  <pre>{{ dataset_test }}</pre>
+  <!-- <p>{{ dataset_test|length }} wierszy</p> -->
+
+  <h1>Podsumowanie uczenia modelu</h1>
+  <h2>Wybrany model <b>{{ model_name }}</b></h2>
+  <h2>Metryki modelu</h2>
+  <pre>{{ metrics }}</pre>
+  <p>Czas trenowania: {{ training_time }}</p>
+  {% for key, value in images.items() %}
+  <img alt="{{ key }}" src="data:image/png;charset=utf-8;base64,{{ value }}">
+  {% endfor %}
+  <p>Wygenerowano: {{ generated_at }}</p>
+</body>
+
+</html>

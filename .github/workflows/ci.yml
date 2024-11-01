@@ -3,7 +3,7 @@ name: Pipeline for automatic model creation
 on:
   push:
     paths-ignore:
-      README.md
+      - README.md
 
 jobs:
   create-models:

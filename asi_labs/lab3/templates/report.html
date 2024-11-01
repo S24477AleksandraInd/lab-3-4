@@ -19,7 +19,40 @@
 </head>
 
 <body>
-  <h1>Podsumowanie danych</h1>
+  <h1>Wprowadzenie</h1>
+  <p>
+    Celem niniejszego raportu jest przedstawienie wyników analizy predykcyjnej mającej na celu prognozowanie wyników akademickich studentów na podstawie różnych czynników demograficznych, socjoekonomicznych i edukacyjnych. Poprzez zrozumienie relacji między tymi czynnikami a osiągnięciami akademickimi, możemy zidentyfikować kluczowe elementy wpływające na sukces edukacyjny.
+  </p>
+  <h1>Opis Zbioru Danych “College distance”</h1>
+  <p>
+    Analizowany zbiór danych składa się z 4739 rekordów i zawiera 15 zmiennych opisujących różne aspekty uczestników
+  </p>
+  <pre>
+    1. gender – płeć uczestnika ("male" lub "female").
+    2. ethnicity – przynależność etniczna ("afam" dla Afroamerykanów, "other" dla pozostałych grup).
+    3. score – wynik uczestnika, który został przeskalowany i znormalizowany.
+    4. fcollege – informacja, czy ojciec uczestnika ukończył studia wyższe.
+    5. mcollege – informacja, czy matka uczestnika ukończyła studia wyższe.
+    6. home – typ miejsca zamieszkania.
+    7. urban – czy miejsce zamieszkania jest obszarem miejskim (zmienna binarna).
+    8. unemp – stopa bezrobocia w regionie zamieszkania.
+    9. wage – wynagrodzenie uczestnika.
+    10. distance – odległość do placówki edukacyjnej.
+    11. tuition – wysokość czesnego.
+    12. education – poziom wykształcenia.
+    13. income – poziom dochodu ("niski", "średni", "wysoki").
+    14. region – region zamieszkania (np. zachodni, południowy).
+    15. Zmienne binarne etniczności – dodane dla precyzyjniejszej analizy, np. "ethnicity_hispanic", "ethnicity_other".
+  </pre>
+  <p>
+    Kolumna "rownames" została usunięta jako nieistotna dla analizy. Po przetworzeniu, zbiór danych zawiera 16 kolumn, w tym przeskalowaną zmienną "score".
+  </p>
+  <h2>Przygotowanie Danych</h2>
+  <ul>
+    <li>Wyeliminowano kolumnę "rownames"</li>
+    <li>Przeskalowano i znormalizowano zmienną "score" w celu ujednolicenia jednostek</li>
+    <li>Dodano zmienne binarne dla cech takich jak przynależność etniczna</li>
+  </ul>
   <h2>Surowy dataset</h2>
   <pre>{{ dataset_raw }}</pre>
   <h2>Przygotowany dataset</h2>
@@ -31,7 +64,7 @@
   <pre>{{ dataset_test }}</pre>
   <!-- <p>{{ dataset_test|length }} wierszy</p> -->
 
-  <h1>Podsumowanie uczenia modelu</h1>
+  <h1>Podsumowanie uczenia modelu, Wybór Modelu i Uzasadnienie</h1>
   <h2>Wybrany model <b>{{ model_name }}</b></h2>
   <h2>Metryki modelu</h2>
   <pre>{{ metrics }}</pre>
@@ -39,6 +72,37 @@
   {% for key, value in images.items() %}
   <img alt="{{ key }}" src="data:image/png;charset=utf-8;base64,{{ value }}">
   {% endfor %}
+
+  <h2>Uzasadnienie wyboru</h2>
+  <pre>
+    • LARS jest skuteczny, gdy predyktory są wzajemnie skorelowane, co pozwala na selekcję najistotniejszych cech.
+    • Trening modelu trwał j57 sekund.
+    • Model pomaga zapobiegać overfittingowi, zwiększając zdolność do generalizacji na nowych danych.
+  </pre>
+  <h2>Wyniki Analizy</h2>
+<h3>Metryki oceniające model:</h3>
+<ul>
+    <li><strong>Średni błąd bezwzględny (MAE):</strong> 0,4108</li>
+    <li><strong>Średni błąd kwadratowy (MSE):</strong> 0,2599</li>
+    <li><strong>Pierwiastek z MSE (RMSE):</strong> 0,5098</li>
+    <li><strong>Średni procentowy błąd bezwzględny (MAPE):</strong> 2,9068%</li>
+    <li><strong>Współczynnik determinacji (R²):</strong> 0,3355</li>
+</ul>
+
+<h3>Interpretacja wyników:</h3>
+<ul>
+    <li>Niskie wartości wskazują na niewielkie odchylenia przewidywań od wartości rzeczywistych.</li>
+    <li>Potwierdza stabilność i precyzję modelu.</li>
+    <li>Średnie odchylenie procentowe wynosi około 2,9%, co świadczy o wysokiej jakości predykcji.</li>
+    <li>Model wyjaśnia około 33,55% wariancji zmiennej "score", co sugeruje istotny wpływ analizowanych cech.</li>
+</ul>
+
+<h2>Wnioski</h2>
+<ol>
+    <li>Model skutecznie przewiduje wyniki studentów na podstawie dostępnych danych, co potwierdzają niskie wartości błędów predykcji.</li>
+    <li>Czynniki takie jak wykształcenie rodziców, poziom dochodu, odległość do uczelni i inne zmienne demograficzne mają znaczący wpływ na wyniki akademickie.</li>
+    <li>Wartość R² sugeruje, że istnieją dodatkowe czynniki wpływające na wyniki, które nie zostały uwzględnione w obecnym modelu.</li>
+</ol>
   <p>Wygenerowano: {{ generated_at }}</p>
 </body>
 

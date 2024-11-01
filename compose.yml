@@ -1,11 +1,6 @@
 services:
-  worker:
-    image: myoung34/github-runner:latest
-    environment:
-      REPO_URL: https://github.com/S24477AleksandraInd/lab-3-4
-      RUNNER_NAME: ${RUNNER_NAME}
-      RUNNER_TOKEN: ${RUNNER_TOKEN}
-      RUNNER_WORKDIR: /tmp/runner/work
-      RUNNER_SCOPE: 'repo'
-      LABELS: linux,x64
-      DEBUG_OUTPUT: 'true'
+  api:
+    build: .
+    image: s24477/lab4-api:latest
+    ports:
+      - "8000:8000"

@@ -1,5 +1,9 @@
 # Lab 4
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/S24477AleksandraInd/lab-3-4/ci.yml)
+![Docker Image Size (tag)](https://img.shields.io/docker/image-size/s24477/lab4-api/latest)
+[![](https://img.shields.io/badge/Available_on-Docker_Hub-blue)](https://hub.docker.com/r/s24477/lab4-api)
+
 ## Jak sklonować repozytorium
 
 0. Zainstaluj git na swoim komputerze

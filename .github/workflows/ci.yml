@@ -82,3 +82,4 @@ jobs:
         with:
           push: true
           tags: s24477/lab4-api:latest
+          context: .

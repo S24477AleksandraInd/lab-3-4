@@ -63,17 +63,17 @@ images = [
     s.plot_model(final_model, plot="vc", save=True, verbose=False),
 ]
 
-# Create .models directory if it does not exist
-Path(".models").mkdir(exist_ok=True)
-s.save_model(final_model, ".models/output_model")
+# Create models directory if it does not exist
+Path("models").mkdir(exist_ok=True)
+s.save_model(final_model, "models/output_model")
 
 for image in images:
-    target_path = Path(".models") / Path(image).name
+    target_path = Path("models") / Path(image).name
     if target_path.exists():
         target_path.unlink()
-    shutil.move(image, ".models")
+    shutil.move(image, "models")
 
-images = [".models/" + Path(image).name for image in images]
+images = ["models/" + Path(image).name for image in images]
 
 # make a html report
 templates = Path(__file__).parent / "templates"
@@ -103,12 +103,12 @@ html = template.render(
     model_name=str(final_model),
 )
 
-with open(".models/report.html", "w", encoding="utf8") as f:
+with open("models/report.html", "w", encoding="utf8") as f:
     f.write(html)
 
 pdfkit.from_string(
     html,
-    ".models/report.pdf",
+    "models/report.pdf",
     options={
         "encoding": "UTF-8",
         "page-size": "A4",

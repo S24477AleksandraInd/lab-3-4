@@ -14,8 +14,8 @@ RUN poetry install --with api
 
 COPY asi_labs/ /app/asi_labs/
 
-COPY .assets/CollegeDistance.csv /app/.assets/CollegeDistance.csv
+COPY assets/CollegeDistance.csv /app/assets/CollegeDistance.csv
 
-COPY .models/output_model.pkl /app/.models/output_model.pkl
+COPY models/output_model.pkl /app/models/output_model.pkl
 
 CMD ["fastapi", "run", "--host", "0.0.0.0", "--port", "8000", "asi_labs/lab4/api.py"]

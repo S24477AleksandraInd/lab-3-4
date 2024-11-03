@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.preprocessing import RobustScaler
 
-dataset_raw = pd.read_csv(".assets/CollegeDistance.csv")
+dataset_raw = pd.read_csv("assets/CollegeDistance.csv")
 
 # drop unused columns
 dataset = dataset_raw.drop(columns=["rownames"])
@@ -27,4 +27,4 @@ if __name__ == "__main__":
     import pandas_profiling as pp
 
     report = pp.ProfileReport(dataset)
-    report.to_file(".assets/CollegeDistance.html")
+    report.to_file("assets/CollegeDistance.html")

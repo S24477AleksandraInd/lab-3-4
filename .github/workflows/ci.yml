@@ -42,7 +42,7 @@ jobs:
       - name: Copy reports to /tmp
         run: |
           mkdir -p /tmp/reports
-          cp .models/report.pdf .models/report.html .models/*.png .assets/CollegeDistance.html /tmp/reports
+          cp models/report.pdf models/report.html models/*.png assets/CollegeDistance.html /tmp/reports
 
       - name: Archive generated reports
         uses: actions/upload-artifact@v4
@@ -54,7 +54,7 @@ jobs:
       - name: Copy model to /tmp
         run: |
           mkdir -p /tmp/model
-          cp .models/output_model.pkl /tmp/model
+          cp models/output_model.pkl /tmp/model
 
       - name: Archive generated models
         uses: actions/upload-artifact@v4

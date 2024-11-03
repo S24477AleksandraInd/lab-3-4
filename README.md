@@ -5,7 +5,7 @@
 ### Eksploracja i wstępna analiza danych
 
  - Przetwarzanie danych -> `asi_labs/lab3/dataset.py`
- - Eksploracja danych -> `.assets/report-copy/CollegeDistance.html`
+ - Eksploracja danych -> `assets/report-copy/CollegeDistance.html`
 
 ### Inżynieria cech i przygotowanie danych
 
@@ -18,7 +18,7 @@
 
 ### Ocena i optymalizacja modelu
 
- - Ocena poprzez raporty -> `.assets/report-copy/`
+ - Ocena poprzez raporty -> `assets/report-copy/`
  - Optymalizacja modelu -> `asi_labs/lab3/learn.py`
  - Skrócona ocena -> dalsza część README.md
 
@@ -66,7 +66,7 @@ Std   0.0294  0.0312  0.0303  0.1004  0.0186  1.2025
 
 Pełny raport z trenowania został wygenerowany w [Reapply "fix(tmp): use ubuntu latest" #23](https://github.com/S24477AleksandraInd/lab-3-4/actions/runs/11542692322).
 
-Kopia raportu znajduje się w [`.assets/report-copy`](.assets/report-copy).
+Kopia raportu znajduje się w [`assets/report-copy`](assets/report-copy).
 
 Wszystkie raporty znajdują są dostępne [tutaj](https://github.com/S24477AleksandraInd/lab-3-4/actions?query=event%3Apush+is%3Asuccess+branch%3Amain)
 

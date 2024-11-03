@@ -6,7 +6,7 @@ from asi_labs.lab3.dataset import dataset
 import typing
 
 app = FastAPI()
-model = load_model(".models/output_model")
+model = load_model("models/output_model")
 
 
 class InputsModel(BaseModel):

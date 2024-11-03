@@ -4,19 +4,20 @@ from sklearn.preprocessing import RobustScaler
 dataset_raw = pd.read_csv("assets/CollegeDistance.csv")
 
 
-def transform_df(df: pd.DataFrame):
+def transform_df(df: pd.DataFrame, rescale=True):
     df["gender"] = df["gender"].apply(lambda v: 1 if v == "male" else 0)
 
     # encode ethnicity
-    df = pd.get_dummies(
-        df, columns=["ethnicity"], prefix=["ethnicity"], prefix_sep="_", dtype=int
-    )
+    # df = pd.get_dummies(
+    #     df, columns=["ethnicity"], prefix=["ethnicity"], prefix_sep="_", dtype=int
+    # )
 
     # scale data
-    scaler = RobustScaler()
-    df["education"] = df["education"].astype(float)
-    scalable_columns = df.select_dtypes(include=["float64"]).columns
-    df[scalable_columns] = scaler.fit_transform(df[scalable_columns])
+    if rescale:
+        scaler = RobustScaler()
+        df["education"] = df["education"].astype(float)
+        scalable_columns = df.select_dtypes(include=["float64"]).columns
+        df[scalable_columns] = scaler.fit_transform(df[scalable_columns])
 
     return df
 

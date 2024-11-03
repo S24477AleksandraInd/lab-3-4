@@ -39,7 +39,8 @@ def read_inputs(count: int = 1):
 @app.post("/predict", summary="Predict the score")
 def predict(inputs: list[dict]):
     df = pd.DataFrame(inputs)
-    df_safe = transform_df(df)
+    # df_safe = transform_df(df)
+    df_safe = df
     results = predict_model(model, df_safe)
     results = results.rename(columns={"prediction_label": "score"})
 

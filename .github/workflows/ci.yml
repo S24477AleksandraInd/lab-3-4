@@ -62,12 +62,6 @@ jobs:
           name: model
           path: /tmp/model
 
-      - name: Print directory structure
-        run: |
-          pwd
-          realpath models
-          ls -R models assets asi_labs
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -82,4 +76,3 @@ jobs:
         with:
           push: true
           tags: s24477/lab4-api:latest
-          context: .

@@ -62,6 +62,9 @@ jobs:
           name: model
           path: /tmp/model
 
+      - name: Print directory structure
+        run: ls -R models assets asi_labs
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 

@@ -1,27 +1,88 @@
 # Lab 4
 
+## Jak sklonować repozytorium
+
+0. Zainstaluj git na swoim komputerze
+
+1. Sklonuj repozytorium
+
+```sh
+git clone git@github.com:S24477AleksandraInd/lab-3-4.git
+```
+
 ## Uruchom
+
+### Lokalnie
+
+0. Zainstaluj `Python 3.11` oraz `poetry`.
+
+> [!TIP]
+> Do zarządzania wersjami w pythonie użyj PyEnv
+
+1. Zainstaluj zależności do uczenia maszynowego
+
+```sh
+poetry install --with learning
+```
+
+2. Stwórz model
+
+```sh
+poetry run python3 -m asi_labs.lab3.learn
+```
+
+> [!IMPORTANT]
+> Może być wymagane zaistalowanie bibliotek `libgomp1 wkhtmltopdf` do wygenerowania raportu. Mimo ewentualnego błędu w tym module, model zostanie wygenerowany.
+> Więcej informacji https://pypi.org/project/pdfkit/
+
+3. Zainstaluj zależności do API
+
+```sh
+poetry install --with api
+```
+
+4. Uruchom API
+
+```sh
+poetry run python3 -m asi_labs.lab4.api
+```
 
 ### Docker compose
 
 1. Utwórz plik `compose.yml`
-  ```
-  services:
-    api:
-      build: .
-      image: s24477/lab4-api:latest
-      ports:
-        - "8000:8000"
-  ```
+
+```yaml
+services:
+  api:
+    image: s24477/lab4-api:latest
+    ports:
+      - "8000:8000"
+```
 
 2. Uruchom
-  ```
-  docker compose up
-  ```
+
+```sh
+docker compose up
+```
+
+> [!NOTE]
+> Docker automatycznie pobierze obraz z Docker Huba
 
 ### Docker
-```
+
+```sh
 docker run -it --rm -p 8000:8000 s24477/lab4-api:latest
+```
+
+> [!NOTE]
+> Docker automatycznie pobierze obraz z Docker Huba
+
+## Tworzenie obrazu
+
+```sh
+git clone git@github.com:S24477AleksandraInd/lab-3-4.git
+cd lab-3-4
+docker compose build
 ```
 
 # Lab 3
@@ -30,23 +91,23 @@ docker run -it --rm -p 8000:8000 s24477/lab4-api:latest
 
 ### Eksploracja i wstępna analiza danych
 
- - Przetwarzanie danych -> `asi_labs/lab3/dataset.py`
- - Eksploracja danych -> `assets/report-copy/CollegeDistance.html`
+- Przetwarzanie danych -> `asi_labs/lab3/dataset.py`
+- Eksploracja danych -> `assets/report-copy/CollegeDistance.html`
 
 ### Inżynieria cech i przygotowanie danych
 
- - Inżynieria cech -> `asi_labs/lab3/dataset.py`
+- Inżynieria cech -> `asi_labs/lab3/dataset.py`
 
 ### Wybór i trenowanie modelu
 
- - Wybór modelu -> `asi_labs/lab3/learn.py` oraz dalsza część README.md
- - Trenowanie modelu -> `asi_labs/lab3/learn.py`
+- Wybór modelu -> `asi_labs/lab3/learn.py` oraz dalsza część README.md
+- Trenowanie modelu -> `asi_labs/lab3/learn.py`
 
 ### Ocena i optymalizacja modelu
 
- - Ocena poprzez raporty -> `assets/report-copy/`
- - Optymalizacja modelu -> `asi_labs/lab3/learn.py`
- - Skrócona ocena -> dalsza część README.md
+- Ocena poprzez raporty -> `assets/report-copy/`
+- Optymalizacja modelu -> `asi_labs/lab3/learn.py`
+- Skrócona ocena -> dalsza część README.md
 
 ## Stworzone modele
 
@@ -96,7 +157,7 @@ Kopia raportu znajduje się w [`assets/report-copy`](assets/report-copy).
 
 Wszystkie raporty znajdują są dostępne [tutaj](https://github.com/S24477AleksandraInd/lab-3-4/actions?query=event%3Apush+is%3Asuccess+branch%3Amain)
 
-## Github Actions oraz *self-hosted runners*
+## Github Actions oraz _self-hosted runners_
 
 Do uruchamiania zadań w GH Actions pierwotnie zastosowano kontener zdefiniowany w `compose.yml`
 

@@ -63,7 +63,10 @@ jobs:
           path: /tmp/model
 
       - name: Print directory structure
-        run: ls -R models assets asi_labs
+        run: |
+          pwd
+          realpath models
+          ls -R models assets asi_labs
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3

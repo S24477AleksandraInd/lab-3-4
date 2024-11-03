@@ -1,3 +1,29 @@
+# Lab 4
+
+## Uruchom
+
+### Docker compose
+
+1. Utwórz plik `compose.yml`
+  ```
+  services:
+    api:
+      build: .
+      image: s24477/lab4-api:latest
+      ports:
+        - "8000:8000"
+  ```
+
+2. Uruchom
+  ```
+  docker compose up
+  ```
+
+### Docker
+```
+docker run -it --rm -p 8000:8000 s24477/lab4-api:latest
+```
+
 # Lab 3
 
 ## Zadania z labu
@@ -75,5 +101,3 @@ Wszystkie raporty znajdują są dostępne [tutaj](https://github.com/S24477Aleks
 Do uruchamiania zadań w GH Actions pierwotnie zastosowano kontener zdefiniowany w `compose.yml`
 
 Z dalszym rozwojem projektu wykorzystano [runnery wewnątrz kubernetes-a (ARC)](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller).
-
-# Lab 4

@@ -17,7 +17,7 @@ git clone git@github.com:S24477AleksandraInd/lab-3-4.git
 0. Zainstaluj `Python 3.11` oraz `poetry`.
 
 > [!TIP]
-> Do zarządzania wersjami w pythonie użyj PyEnv
+> Do zarządzania wersjami w pythonie użyj [pyenv](https://github.com/pyenv/pyenv)
 
 1. Zainstaluj zależności do uczenia maszynowego
 
